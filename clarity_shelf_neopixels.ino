@@ -61,7 +61,7 @@ void loop() {
 
 
 
-if(distance_cm <=25 ) { // Checks if proximity reading is within 25 or not
+if(distance_cm <=22 ) { // Checks if proximity reading is within 25 or not
 
   if (isLoaded == false)  { //Checks if isLoaded state was already false or not
     loaderLight();  // Calls function to turn on loading lights
@@ -70,7 +70,6 @@ if(distance_cm <=25 ) { // Checks if proximity reading is within 25 or not
 
   solid(255); //Calls the function to keep the lights solid when something is kept within 25 cm
 
-  Brightness = 250;  // This keeps brightness at 250 before pulsing starts to maintain seamlessness of pulsing
 
 
 }
@@ -92,7 +91,7 @@ void pulsing () {
   delay(30); //Delay between each function call
 
 
-   if (Brightness <= 0 || Brightness >= 255) { //checks if brightness is full or not
+   if (Brightness <= 0 || Brightness >= 180) { //checks if brightness is full or not
     NeoPixel.clear();  // Turns off all neopixels
     fadeAmount = -fadeAmount; // Turns fadeamount negative to pulsing is reveresd
   }
@@ -115,12 +114,13 @@ for (int pixel = 0; pixel < NUM_PIXELS; pixel++) {           // for each pixel
 
 void loaderLight() {
     for (int pixel = 0; pixel < NUM_PIXELS; pixel++) {           // for each pixel
-    NeoPixel.setPixelColor(pixel, NeoPixel.Color(0, 255, 0));  // it only takes effect if pixels.show() is called
+    NeoPixel.setPixelColor(pixel, NeoPixel.Color(0, 255, 255));  // it only takes effect if pixels.show() is called
     NeoPixel.show();                                           // update to the NeoPixel Led Strip
 
-    delay(10);  // 10ms pause between each pixel
+    delay(12.5);  // 10ms pause between each pixel
   }
   NeoPixel.clear();
-  
+
+    Brightness = 175;  // This keeps brightness at 250 before pulsing starts to maintain seamlessness of pulsing  
 
 }
