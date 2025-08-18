@@ -104,7 +104,7 @@ void pulsing () {
 void solid (int x) {
 
 for (int pixel = 0; pixel < NUM_PIXELS; pixel++) {           // for each pixel
-    NeoPixel.setPixelColor(pixel, NeoPixel.Color(x, x, x));
+    NeoPixel.setPixelColor(pixel, NeoPixel.Color(x, x, x - 80));
 
       // it only takes effect if pixels.show() is called
   }
@@ -114,7 +114,7 @@ for (int pixel = 0; pixel < NUM_PIXELS; pixel++) {           // for each pixel
 
 void loaderLight() {
     for (int pixel = 0; pixel < NUM_PIXELS; pixel++) {           // for each pixel
-    NeoPixel.setPixelColor(pixel, NeoPixel.Color(0, 255, 255));  // it only takes effect if pixels.show() is called
+    NeoPixel.setPixelColor(pixel, NeoPixel.Color(255, 255, 50));  // it only takes effect if pixels.show() is called
     NeoPixel.show();                                           // update to the NeoPixel Led Strip
 
     delay(12.5);  // 10ms pause between each pixel
